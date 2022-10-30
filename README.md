@@ -1,8 +1,10 @@
-# zk-hangman backend (circuits + contracts)
+# Zero knowledge hangman backend (circuits + contracts)
 
 This is the backed for my final project for the zero-knowledge Harmony DAO course.
 
 See front-end implementation here <https://github.com/Toki321/zk-hangman-frontend>.
+
+## Overview
 
 If you've played hangman before, the rules are exactly the same, except with zk-hangman we utilize zero-knowledge proofs and smart contracts to play the game on-chain 
 in an entirely trustless manner. There are some constraints in place with the MVP, one of them being that the secret word must have a fixed length of 5 characters.
