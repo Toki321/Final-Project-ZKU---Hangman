@@ -7,9 +7,9 @@ See front-end implementation here <https://github.com/Toki321/zk-hangman-fronten
 ## Overview
 
 If you've played hangman before, the rules are exactly the same, except with zk-hangman we utilize zero-knowledge proofs and smart contracts to play the game on-chain 
-in an entirely trustless manner. There are some constraints in place with the MVP, one of them being that the secret word must have a fixed length of 5 characters.
+in an entirely trustless manner.
 
-The game consists of two players: the host and the player. The host must initialize the game with the secret 5 character word and the player must guess the word 
+The game consists of two players: the host and the player. The host must initialize the game with the secret 5-10 character word and the player must guess the word 
 character by character with a limited number of invalid guesses (which is 6 in our case).
 
 The game starts with the host generating a zk proof from the characters that will make up the word the player will try to guess, and a secret number. We will see why
@@ -29,6 +29,7 @@ deducted by one.
 The process described above continues until the player has run out of all 6 lives OR the player finally guesses all characters in the word correctly. In the former case 
 the host wins; in the latter case the player wins.
 
-My repo improves upon the work here <https://github.com/russel-ra/zk-hangman>. The main improvement I've did is adding variable word length. Circom, the language
+
+My project improves upon the original work here <https://github.com/russel-ra/zk-hangman>. The main improvement I've did is adding variable word length. Circom, the language
 used for coding the zero-knowledge is very limited and doesn't allow having unknown variables during compile time. So, it didn't allow for a variable length of the word 
 (number of characters in the word) in the prev version.
