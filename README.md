@@ -1,6 +1,6 @@
 # Zero knowledge hangman backend (circuits + contracts)
 
-This is the backed for my final project for the zero-knowledge Harmony DAO course.
+This is the backend for my final project for the zero-knowledge Harmony DAO course.
 
 See front-end implementation here <https://github.com/Toki321/zk-hangman-frontend>.
 
