@@ -29,7 +29,16 @@ deducted by one.
 The process described above continues until the player has run out of all 6 lives OR the player finally guesses all characters in the word correctly. In the former case 
 the host wins; in the latter case the player wins.
 
-
-My project improves upon the original work here <https://github.com/russel-ra/zk-hangman>. The main improvement I've did is adding variable word length. Circom, the language
-used for coding the zero-knowledge is very limited and doesn't allow having unknown variables during compile time. So, it didn't allow for a variable length of the word 
-(number of characters in the word) in the prev version.
+## Improvement
+My project improves upon the original work here <https://github.com/russel-ra/zk-hangman>. In the prev version game only allowed 5 chars per word because all the inputs in circom need to be fixed length at runtime so I came up with this solution:
+First on the front-end User1 inputs a word by clicking letters on the digital keyboard in the UI
+and then clicks submit word. Word length is allowed from 3-10. The mechanic behind it is the 
+following: Let’s say User1 inputs 5 letter word and clicks submit word. Now every letter a-z is 
+represented 0-25. The remaining 5 letters get filled by the front-end with 26, but they’re not shown in 
+the UI. In the UI only 5 dashes will be shown for each letter, but the array is actually 10 
+members(letters) long. User1 then initializes game with circuit Init. This circuit takes a signal input 
+array with 10 members, which is the first 5 letters (some numbers from 0-25) and the rest are 26 each. 
+This is so that the word doesn’t have to be a fixed length of say, 5 letters. This way every time the 
+game is played the User1 can choose a 3-10 letter word.
+Then User2 submits a guess (1 letter) and User1 processes that as an input in the guess circuit which 
+makes sure User1 isn’t cheating by using comparing hashes.
