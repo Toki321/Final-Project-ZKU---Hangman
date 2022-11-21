@@ -31,7 +31,7 @@ the host wins; in the latter case the player wins.
 
 ## Improvement
 My project improves upon the original work here <https://github.com/russel-ra/zk-hangman>. In the prev version game only allowed 5 chars per word because all the inputs in circom need to be fixed length at runtime so I came up with this solution:
-First on the front-end User1 inputs a word by clicking letters on the digital keyboard in the UI
+First on the front-end User1 inputs a word on the UI
 and then clicks submit word. Word length is allowed from 3-10. The mechanic behind it is the 
 following: Let’s say User1 inputs 5 letter word and clicks submit word. Now every letter a-z is 
 represented 0-25. The remaining 5 letters get filled by the front-end with 26, but they’re not shown in 
